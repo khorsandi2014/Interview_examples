@@ -1,0 +1,33 @@
+//efficient function that takes stock_prices_yesterday and 
+//returns the best profit I could have made from 1 purchase and 1 sale
+
+#include<iostream>
+#include <list>
+#include<string>
+#include<cstring>
+
+using namespace std;
+int get_max_profit(int *arr , int len){
+    if(len<2)
+        return 0;
+    
+    int min_value = arr[0];
+    int max_profit = arr[1] - arr[0];
+    int current_profit =0;
+    
+    for ( int i =1 ; i < len; i++){
+        current_profit = arr[i] - min_value;
+        max_profit = max(max_profit,current_profit);
+        min_value = min(min_value,arr[i]);
+    }
+
+    
+    return max_profit;
+}
+
+int main(){
+    int stock_prices_yesterday[] = {10, 7, 5, 4, 3, 20};
+    int len =  sizeof(stock_prices_yesterday) /sizeof(stock_prices_yesterday[0]);
+    cout << "max profit = " <<  get_max_profit(stock_prices_yesterday, len) << endl;
+    return 0;
+}
