@@ -1,3 +1,5 @@
+//an efficient function that takes stock_prices_yesterday and 
+//returns the best profit I could have made from 1 purchase and 1 sale
 
 #include<iostream>
 #include <list>
